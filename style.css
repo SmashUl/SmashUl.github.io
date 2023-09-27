@@ -64,7 +64,7 @@ body{
     top: 0;
     width: 100%; 
     height: 100%;
-    background-color: whitesmoke;
+    background-color: rgb(137, 150, 172);
     font-size: larger;
     transition: all 500ms ease-out;
     opacity: 0;

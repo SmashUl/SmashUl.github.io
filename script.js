@@ -48,9 +48,9 @@ $(document).ready(function () {
 function mostrar_Jugadores() {
   nombresAux.forEach(i => {
     for (var i = 0; i < nombresAux.length; i++) {
-      document.getElementsByClassName("image3")[i].innerHTML += `<option value=' ${nombresAux[i]} '> ${nombresAux[i]} </option>`;
-      document.getElementsByClassName("image12")[i].innerHTML += `<option value=' ${nombresAux[i]} '> ${nombresAux[i]} </option>`;
-      document.getElementsByClassName("image14")[i].innerHTML += `<option value=' ${nombresAux[i]} '> ${nombresAux[i]} </option>`;
+      document.getElementsByClassName("image3")[i].innerHTML += `<option value=' ${nombres[i]} '> ${nombres[i]} </option>`;
+      document.getElementsByClassName("image12")[i].innerHTML += `<option value=' ${nombres[i]} '> ${nombres[i]} </option>`;
+      document.getElementsByClassName("image14")[i].innerHTML += `<option value=' ${nombres[i]} '> ${nombres[i]} </option>`;
     }
   });
 }
