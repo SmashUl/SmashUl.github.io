@@ -1,170 +1,252 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="script.js"></script>
-    <title>Smash</title>
-  </head>
 
-  <body>
-    <div class="div-header">
-      <img src="assets/SmashBall.png" width="100px" align="right" />
-    </div>
-    <div class="contenedor" id="cont-princ">
-      <table style="width: 100%;" class="fixed-table">
-        <tbody>
-          <tr>
-            <td>
-              <figure>
-                <img name="imagen1" src="assets/random.png" />
-                <div class="capa">
-                  <p>ELEGIR<br>PELEADOR</p>
-                </div>
-              </figure>
-            </td>
-            <td>
-              <figure>
-                <img name="imagen2" src="assets/random.png" />
-                <div class="capa">
-                  <p>ELEGIR<br>PELEADOR</p>
-                </div>
-              </figure>
-            </td>
-            <td>
-              <figure>
-                <img name="imagen3" src="assets/random.png" />
-                <div class="capa">
-                  <p>ELEGIR<br>PELEADOR</p>
-                </div>
-              </figure>
-            </td>
-            <td>
-              <figure>
-                <img name="imagen4" src="assets/random.png" />
-                <div class="capa">
-                  <p>ELEGIR<br>PELEADOR</p>
-                </div>
-              </figure>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <figure>
-                <img name="imagen5" src="assets/random.png" />
-                <div class="capa">
-                  <p>ELEGIR<br>PELEADOR</p>
-                </div>
-              </figure>
-            </td>
-            <td>
-              <figure>
-                <img name="imagen6" src="assets/random.png" />
-                <div class="capa">
-                  <p>ELEGIR<br>PELEADOR</p>
-                </div>
-              </figure>
-            </td>
-            <td>
-              <figure>
-                <img name="imagen7" src="assets/random.png" />
-                <div class="capa">
-                  <p>ELEGIR<br>PELEADOR</p>
-                </div>
-              </figure>
-            </td>
-            <td>
-              <figure>
-                <img name="imagen8" src="assets/random.png" />
-                <div class="capa">
-                  <p>ELEGIR<br>PELEADOR</p>
-                </div>
-              </figure>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <figure>
-                <img name="imagen9" src="assets/random.png" />
-                <div class="capa">
-                  <p>ELEGIR<br>PELEADOR</p>
-                </div>
-              </figure>
-            </td>
-            <td>
-              <figure>
-                <img name="imagen10" src="assets/random.png" />
-                <div class="capa">
-                  <p>ELEGIR<br>PELEADOR</p>
-                </div>
-              </figure>
-            </td>
-            <td>
-              <figure>
-                <img name="imagen11" src="assets/random.png" />
-                <div class="capa">
-                  <p>ELEGIR<br>PELEADOR</p>
-                </div>
-              </figure>
-            </td>
-            <td>
-              <figure>
-                <img name="imagen12" src="assets/random.png" />
-                <div class="capa">
-                  <p>ELEGIR<br>PELEADOR</p>
-                </div>
-              </figure>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <figure>
-                <img name="imagen13" src="assets/random.png" />
-                <div class="capa">
-                  <p>ELEGIR<br>PELEADOR</p>
-                </div>
-              </figure>
-            </td>
-            <td>
-              <figure>
-                <img name="imagen14" src="assets/random.png" />
-                <div class="capa">
-                  <p>ELEGIR<br>PELEADOR</p>
-                </div>
-              </figure>
-            </td>
-            <td>
-              <figure>
-                <img name="imagen15" src="assets/random.png" />
-                <div class="capa">
-                  <p>ELEGIR<br>PELEADOR</p>
-                </div>
-              </figure>
-            </td>
-            <td>
-              <figure>
-                <img name="imagen16" src="assets/random.png" />
-                <div class="capa">
-                  <p>ELEGIR<br>PELEADOR</p>
-                </div>
-              </figure>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-    <br><br><br>
-      <div name="boton" class="wrapper">
-        <button>
-          A Jugar! 
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
-    </div>
-  </body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="script.js"></script>
+  <title>Smash</title>
+</head>
+
+<body>
+  <div class="div-header">
+    <img src="assets/SmashBall.png" width="100px" align="right" />
+  </div>
+
+  <script>
+    personajes = new Array();
+    nombres = ['Mario', 'DonkeyKong', 'Link', 'Samus',
+      'SamusOscura', 'Yoshi', 'Kirby', 'Fox',
+      'Pikachu', 'Luigi', 'Ness', 'CaptainFalcon',
+      'Jigglypuff', 'Peach', 'Daisy', 'Bowser',
+      'IceClimbers', 'Sheik', 'Zelda', 'DrMario',
+      'Pichu', 'Falco', 'Marth', 'Lucina', 'YoungLink',
+      'Ganondorf', 'Mewtwo', 'Roy', 'Chrom', 'MrGame&Watch',
+      'MetaKnight', 'Pit', 'PitSombrio', 'SamusZero',
+      'Wario', 'Snake', 'Ike', 'EntrenadorPokémon',
+      'DiddyKong', 'Lucas', 'Sonic', 'ReyDedede', 'Olimar',
+      'Lucario', 'ROB', 'ToonLink', 'Wolf', 'Aldeano',
+      'MegaMan', 'EntrenadoradeWiiFit', 'EstelayDestello',
+      'LittleMac', 'Greninja', 'LuchadoresMii', 'Palutena',
+      'PacMan', 'Daraen', 'Shulk', 'Bowsy', 'DuoDuckHunt',
+      'Ryu', 'Ken', 'Cloud', 'Corrin', 'Bayonetta', 'Inkling',
+      'Ridley', 'SimonBelmont', 'RichterBelmont', 'KingKRool',
+      'Canela', 'Incineroar', 'PlantaPiraña', 'Joker', 'Heroe',
+      'BanjoyKazooie', 'Terry', 'Byleth', 'MinMin', 'Steve',
+      'Sefirot', 'Pyra', 'Mythra', 'Kazuya', 'Sora']
+    nombresAux = nombres
+
+
+    for (var i = 0; i < nombres.length; i++) {
+      personajes[i] = [`assets/Personajes Smash/${nombres[i]}.png`];
+    }
+
+    //document.querySelector("#boton")
+    // genera numero aleatorio y coloca la imagen, itera 17 veces
+    function cambiarImagen(){
+    for (var i = 1; i < 17; i++) {
+
+      function obtenerImagenAleatoria() {
+        //El numero generado es el que se quita del arreglo personajes
+        nombresAux = personajes.splice((Math.floor(Math.random() * personajes.length)), 1)
+        return personajes[Math.floor(Math.random() * personajes.length)];
+      }
+      function obtenerImagenAleatoria() {
+        //El numero generado es el que se quita del arreglo personajes
+        nombresAux = personajes.splice((Math.floor(Math.random() * personajes.length)), 1)
+        return nombresAux[Math.floor(Math.random() * nombresAux.length)];
+      }
+      $(`#imagen${i}`).attr('src', obtenerImagenAleatoria());
+      /*if (i != 3 && i != 12 && i != 14) {
+        function obtenerImagenAleatoria() {
+          //El numero generado es el que se quita del arreglo personajes
+          nombresAux = personajes.splice((Math.floor(Math.random() * personajes.length)), 1)
+          return personajes[Math.floor(Math.random() * personajes.length)];
+        }
+        function obtenerImagenAleatoria() {
+          //El numero generado es el que se quita del arreglo personajes
+          nombresAux = personajes.splice((Math.floor(Math.random() * personajes.length)), 1)
+          return personajes[Math.floor(Math.random() * personajes.length)];
+        }
+
+        function cambiarImagen() {
+          $(`#imagen${i}`).attr('src', obtenerImagenAleatoria());
+        }*/
+      }
+    }
+
+    function mostrar_Jugadores() {
+      nombresAux.forEach(i => {
+        for (var i = 0; i < nombresAux.length; i++) {
+          document.getElementsByClassName("#image3")[i].innerHTML += `<option value=' ${nombresAux[i]} '> ${nombresAux[i]} </option>`;
+          document.getElementsByClassName("#image12")[i].innerHTML += `<option value=' ${nombresAux[i]} '> ${nombresAux[i]} </option>`;
+          document.getElementsByClassName("#image14")[i].innerHTML += `<option value=' ${nombresAux[i]} '> ${nombresAux[i]} </option>`;
+        }
+      });
+    }
+
+  </script>
+
+  <div class="contenedor" id="cont-princ">
+    <table style="width: 100%;" class="fixed-table">
+      <tbody>
+        <tr>
+          <td class="flex-td">
+            <figure>
+              <img id="imagen1" src="assets/random.png" />
+              <div class="capa">
+                <p>ELEGIR<br>PELEADOR</p>
+              </div>
+            </figure>
+          </td>
+          <td class="flex-td">
+            <figure>
+              <img id="imagen2" src="assets/random.png" />
+              <div class="capa">
+                <p>ELEGIR<br>PELEADOR</p>
+              </div>
+            </figure>
+          </td>
+          <td class="flex-td">
+            <figure>
+              <img id="imagen3" src="assets/random.png" />
+              <div class="capa">
+                <select id="image3" onclick="mostrar_Jugadores()">
+                  <option value=""></option>
+                </select>
+              </div>
+            </figure>
+          </td>
+          <td class="flex-td">
+            <figure>
+              <img id="imagen4" src="assets/random.png" />
+              <div class="capa">
+                <p>ELEGIR<br>PELEADOR</p>
+              </div>
+            </figure>
+          </td>
+        </tr>
+        <tr>
+          <td class="flex-td">
+            <figure>
+              <img id="imagen5" src="assets/random.png" />
+              <div class="capa">
+                <p>ELEGIR<br>PELEADOR</p>
+              </div>
+            </figure>
+          </td>
+          <td class="flex-td">
+            <figure>
+              <img id="imagen6" src="assets/random.png" />
+              <div class="capa">
+                <p>ELEGIR<br>PELEADOR</p>
+              </div>
+            </figure>
+          </td>
+          <td class="flex-td">
+            <figure>
+              <img id="imagen7" src="assets/random.png" />
+              <div class="capa">
+                <p>ELEGIR<br>PELEADOR</p>
+              </div>
+            </figure>
+          </td>
+          <td class="flex-td">
+            <figure>
+              <img id="imagen8" src="assets/random.png" />
+              <div class="capa">
+                <p>ELEGIR<br>PELEADOR</p>
+              </div>
+            </figure>
+          </td>
+        </tr>
+        <tr>
+          <td class="flex-td">
+            <figure>
+              <img id="imagen9" src="assets/random.png" />
+              <div class="capa">
+                <p>ELEGIR<br>PELEADOR</p>
+              </div>
+            </figure>
+          </td>
+          <td class="flex-td">
+            <figure>
+              <img id="imagen10" src="assets/random.png" />
+              <div class="capa">
+                <p>ELEGIR<br>PELEADOR</p>
+              </div>
+            </figure>
+          </td>
+          <td class="flex-td">
+            <figure>
+              <img id="imagen11" src="assets/random.png" />
+              <div class="capa">
+                <p>ELEGIR<br>PELEADOR</p>
+              </div>
+            </figure>
+          </td>
+          <td class="flex-td">
+            <figure>
+              <img id="imagen12" src="assets/random.png" />
+              <div class="capa">
+                <select id="image12" onclick="mostrar_Jugadores()">
+                  <option value=""></option>
+                </select>
+              </div>
+            </figure>
+          </td>
+        </tr>
+        <tr>
+          <td class="flex-td">
+            <figure>
+              <img id="imagen13" src="assets/random.png" />
+              <div class="capa">
+                <p>ELEGIR<br>PELEADOR</p>
+              </div>
+            </figure>
+          </td>
+          <td class="flex-td">
+            <figure>
+              <img id="imagen14" src="assets/random.png" />
+              <div class="capa">
+                <select id="image14" onclick="mostrar_Jugadores()">
+                  <option value=""></option>
+                </select>
+              </div>
+            </figure>
+          </td>
+          <td class="flex-td">
+            <figure>
+              <img id="imagen15" src="assets/random.png" />
+              <div class="capa">
+                <p>ELEGIR<br>PELEADOR</p>
+              </div>
+            </figure>
+          </td>
+          <td class="flex-td">
+            <figure>
+              <img id="imagen16" src="assets/random.png" />
+              <div class="capa">
+                <p>ELEGIR<br>PELEADOR</p>
+              </div>
+            </figure>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <br><br><br>
+  <div class="wrapper">
+    <button id="boton" onclick="cambiarImagen()">
+      A Jugar!
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+</body>
+
 </html>
-
