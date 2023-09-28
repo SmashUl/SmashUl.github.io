@@ -57,8 +57,21 @@ body{
 
 /* Media queries para hacerlo responsive */
 @media screen and (max-width: 768px) {
+    .div-header {
+        flex-direction: column; /* Cambia la dirección de flexión a columna */
+        align-items: center; /* Centra verticalmente los elementos */
+        margin-top: 10px; /* Reduce el margen superior */
+    }
     .contenedor figure {
         flex-basis: calc(50% - 2px); /* Divide en dos columnas en pantallas más pequeñas */
+    }
+    .wrapper2{
+        position: relative;
+        top:95%;
+        left:50%;
+        transform: translate(-50%, -50%);
+        width: fit-content;
+        height:auto;
     }
 }
 
@@ -152,7 +165,7 @@ select option {
     height:auto;
 }
 .wrapper2{
-    position: absolute;
+    position: relative;
     top:95%;
     left:50%;
     transform: translate(-50%, -50%);
