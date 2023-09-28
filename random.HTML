@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="scriptRandom.js"></script>
+  <title>Smash</title>
+</head>
+
+<body>
+  <div class="div-header">
+    <img src="assets/reiniciar.png" width="80px" align="left" onclick="recargar()"/>
+    <img src="assets/SmashBall.png" width="100px" align="right" onclick="location.href='index.HTML'"/>
+  </div>
+
+  <script>
+
+    function recargar(){
+        window.location.reload()
+    }
+
+    var enabled = false;
+
+    function enable(){
+        enabled = true;
+    }
+
+    function disable(){
+        enabled = false;
+    }
+
+    personajes = new Array();
+    iconos = new Array();
+    nombres = ['Mario', 'DonkeyKong', 'Link', 'Samus',
+      'SamusOscura', 'Yoshi', 'Kirby', 'Fox',
+      'Pikachu', 'Luigi', 'Ness', 'CaptainFalcon',
+      'Jigglypuff', 'Peach', 'Daisy', 'Bowser',
+      'IceClimbers', 'Sheik', 'Zelda', 'DrMario',
+      'Pichu', 'Falco', 'Marth', 'Lucina', 'YoungLink',
+      'Ganondorf', 'Mewtwo', 'Roy', 'Chrom', 'MrGame&Watch',
+      'MetaKnight', 'Pit', 'PitSombrio', 'SamusZero',
+      'Wario', 'Snake', 'Ike', 'EntrenadorPokémon',
+      'DiddyKong', 'Lucas', 'Sonic', 'ReyDedede', 'Olimar',
+      'Lucario', 'ROB', 'ToonLink', 'Wolf', 'Aldeano',
+      'MegaMan', 'EntrenadoradeWiiFit', 'EstelayDestello',
+      'LittleMac', 'Greninja', 'LuchadoresMii', 'Palutena',
+      'PacMan', 'Daraen', 'Shulk', 'Bowsy', 'DuoDuckHunt',
+      'Ryu', 'Ken', 'Cloud', 'Corrin', 'Bayonetta', 'Inkling',
+      'Ridley', 'SimonBelmont', 'RichterBelmont', 'KingKRool',
+      'Canela', 'Incineroar', 'PlantaPiraña', 'Joker', 'Heroe',
+      'BanjoyKazooie', 'Terry', 'Byleth', 'MinMin', 'Steve',
+      'Sefirot', 'Pyra', 'Mythra', 'Kazuya', 'Sora']
+    nombresAux = nombres
+
+    let personajeIcono = new Map();
+    personajeIcono.set("Mario", "Mario");
+    personajeIcono.set("DonkeyKong", "DonkeyKong");
+    personajeIcono.set("Link", "LegendofZelda");
+    personajeIcono.set("Samus", "Metroid");
+    personajeIcono.set("SamusOscura", "Metroid");
+    personajeIcono.set("Yoshi", "Yoshi");
+    personajeIcono.set("Kirby", "Kirby");
+    personajeIcono.set("Fox", "StarFox");
+    personajeIcono.set("Pikachu", "Pokemon");
+    personajeIcono.set("Luigi", "Mario");
+    personajeIcono.set("Ness", "EarthBound");
+    personajeIcono.set("CaptainFalcon", "FZero");
+    personajeIcono.set("Jigglypuff", "Pokemon");
+    personajeIcono.set("Peach", "Mario");
+    personajeIcono.set("Daisy", "Mario");
+    personajeIcono.set("Bowser", "Mario");
+    personajeIcono.set("IceClimbers", "IceClimber");
+    personajeIcono.set("Sheik", "LegendofZelda");
+    personajeIcono.set("Zelda", "LegendofZelda");
+    personajeIcono.set("DrMario", "Mario");
+    personajeIcono.set("Pichu", "Pokemon");
+    personajeIcono.set("Falco", "StarFox");
+    personajeIcono.set("Marth", "FireEmblem");
+    personajeIcono.set("Lucina", "FireEmblem");
+    personajeIcono.set("YoungLink", "LegendofZelda");
+    personajeIcono.set("Ganondorf", "LegendofZelda");
+    personajeIcono.set("Mewtwo", "Pokemon");
+    personajeIcono.set("Roy", "FireEmblem");
+    personajeIcono.set("Chrom", "FireEmblem");
+    personajeIcono.set("MrGame&Watch", "Watch");
+    personajeIcono.set("MetaKnight", "Kirby");
+    personajeIcono.set("Pit", "KidIcarus");
+    personajeIcono.set("PitSombrio", "KidIcarus");
+    personajeIcono.set("SamusZero", "Metroid");
+    personajeIcono.set("Wario", "Wario");
+    personajeIcono.set("Snake", "MetalGear");
+    personajeIcono.set("Ike", "FireEmblem");
+    personajeIcono.set("EntrenadorPokémon", "Pokemon");
+    personajeIcono.set("DiddyKong", "DonkeyKong");
+    personajeIcono.set("Lucas", "EarthBound");
+    personajeIcono.set("Sonic", "Sonic");
+    personajeIcono.set("ReyDedede", "Kirby");
+    personajeIcono.set("Olimar", "Pikmin");
+    personajeIcono.set("Lucario", "Pokemon");
+    personajeIcono.set("ROB", "ROB");
+    personajeIcono.set("ToonLink", "LegendofZelda");
+    personajeIcono.set("Wolf", "StarFox");
+    personajeIcono.set("Aldeano", "AnimalCrossing");
+    personajeIcono.set("MegaMan", "MegaMan");
+    personajeIcono.set("EntrenadoradeWiiFit", "WiiFit");
+    personajeIcono.set("EstelayDestello", "Mario");
+    personajeIcono.set("LittleMac", "PunchOut");
+    personajeIcono.set("Greninja", "Pokemon");
+    personajeIcono.set("LuchadoresMii", "SmashBros");
+    personajeIcono.set("Palutena", "KidIcarus");
+    personajeIcono.set("PacMan", "PacMan");
+    personajeIcono.set("Daraen", "FireEmblem");
+    personajeIcono.set("Shulk", "Xenoblade");
+    personajeIcono.set("Bowsy", "Mario");
+    personajeIcono.set("DuoDuckHunt", "DuckHunt");
+    personajeIcono.set("Ryu", "StreetFighter");
+    personajeIcono.set("Ken", "StreetFighter");
+    personajeIcono.set("Cloud", "FinalFantasy");
+    personajeIcono.set("Corrin", "FireEmblem");
+    personajeIcono.set("Bayonetta", "Bayonetta");
+    personajeIcono.set("Inkling", "Splatoon");
+    personajeIcono.set("Ridley", "Metroid");
+    personajeIcono.set("SimonBelmont", "Castlevania");
+    personajeIcono.set("RichterBelmont", "Castlevania");
+    personajeIcono.set("KingKRool", "DonkeyKong");
+    personajeIcono.set("Canela", "AnimalCrossing");
+    personajeIcono.set("Incineroar", "Pokemon");
+    personajeIcono.set("PlantaPiraña", "Mario");
+    personajeIcono.set("Joker", "Persona");
+    personajeIcono.set("Heroe", "DragonQuest");
+    personajeIcono.set("BanjoyKazooie", "BanjoKazooie");
+    personajeIcono.set("Terry", "FatalFury");
+    personajeIcono.set("Byleth", "FireEmblem");
+    personajeIcono.set("MinMin", "ARMS");
+    personajeIcono.set("Steve", "Minecraft");
+    personajeIcono.set("Sefirot", "FinalFantasy");
+    personajeIcono.set("Pyra", "Xenoblade");
+    personajeIcono.set("Mythra", "Xenoblade");
+    personajeIcono.set("Kazuya", "Kazuya");
+    personajeIcono.set("Sora", "KingdomHearts");
+
+
+    for (var i = 0; i < personajes.length; i++) {
+      personajes[i] = [`assets/Personajes Smash/${nombres[i]}.png`];
+    }
+
+    function cambiarImagen() {
+      for (var i = 1; i < 17; i++) {
+        nombresAux = personajes.splice((Math.floor(Math.random() * personajes.length)), 1)
+        $(`#imagen${i}`).attr('src', nombresAux[Math.floor(Math.random() * nombresAux.length)]);
+      }
+      enable()
+    }
+
+
+    function clickOnContenedor(event, src){
+        if(enabled){
+            const id = event;
+            $(`#${id}`).attr('src', `assets/completado.png`);
+        }
+        else{
+            disable()
+        }
+    }
+
+  </script>
+
+  <div class="contenedor" id="cont-princ">
+    <table style="width: 100%;" class="fixed-table">
+      <tbody>
+        <tr>
+          <td class="flex-td">
+            <figure>
+              <img id="imagen1" src="assets/random.png" onclick="clickOnContenedor('imagen1','assets/SmashBall.png')"/>
+            </figure>
+          </td>
+          <td class="flex-td">
+            <figure>
+              <img id="imagen2" src="assets/random.png" onclick="clickOnContenedor('imagen2','assets/SmashBall.png')"/>
+            </figure>
+          </td>
+          <td class="flex-td">
+            <figure>
+              <img id="imagen3" src="assets/random.png" onclick="clickOnContenedor('imagen3','assets/SmashBall.png')"/>
+            </figure>
+          </td>
+          <td class="flex-td">
+            <figure>
+              <img id="imagen4" src="assets/random.png" onclick="clickOnContenedor('imagen4','assets/SmashBall.png')"/>
+            </figure>
+          </td>
+        </tr>
+        <tr>
+          <td class="flex-td">
+            <figure>
+              <img id="imagen5" src="assets/random.png" onclick="clickOnContenedor('imagen5','assets/SmashBall.png')"/>
+            </figure>
+          </td>
+          <td class="flex-td">
+            <figure>
+              <img id="imagen6" src="assets/random.png" onclick="clickOnContenedor('imagen6','assets/SmashBall.png')"/>
+            </figure>
+          </td>
+          <td class="flex-td">
+            <figure>
+              <img id="imagen7" src="assets/random.png" onclick="clickOnContenedor('imagen7','assets/SmashBall.png')"/>
+            </figure>
+          </td>
+          <td class="flex-td">
+            <figure>
+              <img id="imagen8" src="assets/random.png" onclick="clickOnContenedor('imagen8','assets/SmashBall.png')"/>
+            </figure>
+          </td>
+        </tr>
+        <tr>
+          <td class="flex-td">
+            <figure>
+              <img id="imagen9" src="assets/random.png" onclick="clickOnContenedor('imagen9','assets/SmashBall.png')"/>
+            </figure>
+          </td>
+          <td class="flex-td">
+            <figure>
+              <img id="imagen10" src="assets/random.png" onclick="clickOnContenedor('imagen10','assets/SmashBall.png')"/>
+            </figure>
+          </td>
+          <td class="flex-td">
+            <figure>
+              <img id="imagen11" src="assets/random.png" onclick="clickOnContenedor('imagen11','assets/SmashBall.png')"/>
+            </figure>
+          </td>
+          <td class="flex-td">
+            <figure>
+              <img id="imagen12" src="assets/random.png" onclick="clickOnContenedor('imagen12','assets/SmashBall.png')"/>
+            </figure>
+          </td>
+        </tr>
+        <tr>
+          <td class="flex-td">
+            <figure>
+              <img id="imagen13" src="assets/random.png" onclick="clickOnContenedor('imagen13','assets/SmashBall.png')"/>
+            </figure>
+          </td>
+          <td class="flex-td">
+            <figure>
+              <img id="imagen14" src="assets/random.png" onclick="clickOnContenedor('imagen14','assets/SmashBall.png')"/>
+            </figure>
+          </td>
+          <td class="flex-td">
+            <figure>
+              <img id="imagen15" src="assets/random.png" onclick="clickOnContenedor('imagen15','assets/SmashBall.png')"/>
+            </figure>
+          </td>
+          <td class="flex-td">
+            <figure>
+              <img id="imagen16" src="assets/random.png" onclick="clickOnContenedor('imagen16','assets/SmashBall.png')"/>
+            </figure>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <br><br><br>
+  <div class="wrapper2">
+    <button id="boton" onclick="cambiarImagen()">
+      A Jugar!
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+</body>
+
+</html>

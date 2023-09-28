@@ -12,7 +12,7 @@ $(document).ready(function () {
     'DiddyKong', 'Lucas', 'Sonic', 'ReyDedede', 'Olimar',
     'Lucario', 'ROB', 'ToonLink', 'Wolf', 'Aldeano',
     'MegaMan', 'EntrenadoradeWiiFit', 'EstelayDestello',
-    'LittleMac', 'Gerninja', 'CombateMii', 'Palutena',
+    'LittleMac', 'Greninja', 'LuchadoresMii', 'Palutena',
     'PacMan', 'Daraen', 'Shulk', 'Bowsy', 'DuoDuckHunt',
     'Ryu', 'Ken', 'Cloud', 'Corrin', 'Bayonetta', 'Inkling',
     'Ridley', 'SimonBelmont', 'RichterBelmont', 'KingKRool',
@@ -45,6 +45,21 @@ $(document).ready(function () {
   $('#boton').on('click', cambiarImagen);
 });
 
+function clickOnContenedor(){
+  document.querySelectorAll(".click").forEach(el => {
+    el.addEventListener("click", e => {
+      const id = e.target.getAttribute("id");
+      for(i=0; i < personaje.length; i++){
+        if(personaje[i] == e.target.getAttribute("src")){
+          var found = personajesIcono.find((element) => element == `${nombres[i]}`);
+          $(`#${id}`).attr('src', `assets/Personajes Smash/Ico/${found}.ico`);
+        }
+      }
+    })
+  })
+}
+
+
 function mostrar_Jugadores() {
   nombresAux.forEach(i => {
     for (var i = 0; i < nombresAux.length; i++) {
@@ -53,4 +68,13 @@ function mostrar_Jugadores() {
       document.getElementsByClassName("image14")[i].innerHTML += `<option value=' ${nombres[i]} '> ${nombres[i]} </option>`;
     }
   });
+}
+
+function establecerImagen3() {
+  var nom = document.getElementById(`image3`).value;
+    $(`#image3`).attr('src', `assets/Personajes Smash/${nom}.png`);
+    console.log(nom)
+    var found = personajes.find((element) => element == `assets/Personajes Smash/${nom}.png`);
+    nombresAux = personajes.splice(found, 1)
+    console.log(found)
 }
