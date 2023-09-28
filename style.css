@@ -68,6 +68,7 @@ body{
         margin-right: 10%;
         overflow:scroll;
         width: min-content;
+        align-items: baseline;
     }
     .contenedor figure {
         flex-basis: calc(50% - 2px); /* Divide en dos columnas en pantallas más pequeñas */
