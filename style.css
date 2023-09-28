@@ -22,6 +22,7 @@ body{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    width: 800px;
     overflow:scroll;
     align-items: center;
     padding: 0;
@@ -66,10 +67,10 @@ body{
     .contenedor{
         margin-right: 10%;
         overflow:scroll;
-        width: 768px;
+        width: min-content;
     }
     .contenedor figure {
-        flex-basis: calc(25% - 2px); /* Divide en dos columnas en pantallas más pequeñas */
+        flex-basis: calc(50% - 2px); /* Divide en dos columnas en pantallas más pequeñas */
     }
     .wrapper2{
         position: relative;
@@ -91,7 +92,7 @@ body{
     .contenedor{
         margin-right: 10%;
         overflow:scroll;
-        width: 480px;
+        width: min-content;
     }
     .contenedor figure {
         flex-basis: 100%; /* Una sola columna en pantallas muy pequeñas */
