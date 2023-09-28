@@ -81,8 +81,8 @@ body{
 
 @media screen and (max-width: 480px) {
     .div-header {
-        flex-direction: column; /* Cambia la dirección de flexión a columna */
-        align-items: center; /* Centra verticalmente los elementos */
+        flex-direction: row; /* Cambia la dirección de flexión a columna */
+        align-items: baseline; /* Centra verticalmente los elementos */
         margin-top: 10px; /* Reduce el margen superior */
     }
     .contenedor{
