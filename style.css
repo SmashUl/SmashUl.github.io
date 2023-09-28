@@ -72,12 +72,27 @@ body{
         transform: translate(-50%, -50%);
         width: fit-content;
         height:auto;
+        margin-bottom: 20px;
     }
 }
 
 @media screen and (max-width: 480px) {
+    .div-header {
+        flex-direction: column; /* Cambia la dirección de flexión a columna */
+        align-items: center; /* Centra verticalmente los elementos */
+        margin-top: 10px; /* Reduce el margen superior */
+    }
     .contenedor figure {
         flex-basis: 100%; /* Una sola columna en pantallas muy pequeñas */
+    }
+    .wrapper2{
+        position: relative;
+        top:95%;
+        left:50%;
+        transform: translate(-50%, -50%);
+        width: fit-content;
+        height:auto;
+        margin-bottom: 20px;
     }
 }
 
@@ -171,6 +186,7 @@ select option {
     transform: translate(-50%, -50%);
     width: fit-content;
     height:auto;
+    margin-bottom: 20px;
 }
 button{
     width:300px;
