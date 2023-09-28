@@ -65,6 +65,7 @@ body{
     .contenedor{
         margin-right: 10%;
         overflow:scroll;
+        width: min-content;
     }
     .contenedor figure {
         flex-basis: calc(25% - 2px); /* Divide en dos columnas en pantallas más pequeñas */
@@ -89,6 +90,7 @@ body{
     .contenedor{
         margin-right: 10%;
         overflow:scroll;
+        width: min-content;
     }
     .contenedor figure {
         flex-basis: 100%; /* Una sola columna en pantallas muy pequeñas */
