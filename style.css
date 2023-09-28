@@ -59,7 +59,7 @@ body{
 @media screen and (max-width: 768px) {
     .div-header {
         flex-direction: row; /* Cambia la dirección de flexión a columna */
-        align-items: center; /* Centra verticalmente los elementos */
+        align-items: baseline; /* Centra verticalmente los elementos */
         margin-top: 10px; /* Reduce el margen superior */
     }
     .contenedor{
