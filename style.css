@@ -91,9 +91,9 @@ body{
         margin-top: 10px; /* Reduce el margen superior */
     }
     .contenedor{
-        margin-right: 10%;
+        margin-right: 3%;
         overflow:scroll;
-        width: 400px;
+        width: 500px;
     }
     .contenedor figure {
         flex-basis: 100%; /* Una sola columna en pantallas muy pequeñas */
