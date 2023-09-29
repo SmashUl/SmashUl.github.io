@@ -65,6 +65,7 @@ body{
         margin-top: 10px; /* Reduce el margen superior */
     }
     .contenedor{
+        display: block;
         margin-right: 10%;
         margin-left: 10%;
         overflow:scroll;
@@ -94,6 +95,7 @@ body{
         margin-top: 10px; /* Reduce el margen superior */
     }
     .contenedor{
+        display: block;
         margin-right: 3%;
         margin-left: 3%;
         overflow:scroll;
