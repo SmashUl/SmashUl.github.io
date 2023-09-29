@@ -73,8 +73,8 @@ body{
         margin-top: 10px; /* Reduce el margen superior */
     }
     .contenedor{
-        display: block;
-       /* overflow:scroll;*/
+        /*display: block;
+        overflow:scroll;*/
         align-items: baseline;
         max-width: 100%;
         width: auto;
@@ -102,8 +102,8 @@ body{
         margin-top: 10px; /* Reduce el margen superior */
     }
     .contenedor{
-        display: block;
-        /*overflow:scroll;*/
+        /*display: block;
+        overflow:scroll;*/
         max-width: 100%;
         width: auto;
         overflow-x: auto;
