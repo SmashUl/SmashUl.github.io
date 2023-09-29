@@ -67,7 +67,7 @@ body{
     .contenedor{
         margin-right: 10%;
         overflow:scroll;
-        width: 100%;
+        width: 100vw;
         align-items: baseline;
     }
     .contenedor figure {
@@ -93,7 +93,7 @@ body{
     .contenedor{
         margin-right: 3%;
         overflow:scroll;
-        width: 100%;
+        width: 100vw;
     }
     .contenedor figure {
         flex-basis: 100%; /* Una sola columna en pantallas muy pequeñas */

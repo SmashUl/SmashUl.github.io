@@ -205,11 +205,12 @@
                 
                 $(`#imagen${id}`).attr('src', `${valor}`);
                 seleccionadoImagen3 = true
-                var found = personajes.find((element) => element == `${valor}`);
-                nombresAux = personajes.splice(found, 1)
+                var foundIndex = personajes.find((element) => element == `${valor}`);
+                personajes.splice(foundIndex, 1);
+                console.log(foundIndex);
             });
         }
-        actualizarLista()
+        actualizarLista();
     }
 
     function establecerImagen12() {
@@ -225,13 +226,12 @@
                 
                 $(`#imagen${id}`).attr('src', `${valor}`);
                 seleccionadoImagen12 = true
-                var foundIndex = personajes.indexOf(`${valor}`);
-                if (foundIndex == -1) {
-                    personajes.splice(foundIndex, 1);
-                    console.log(foundIndex);
-                }
+                var foundIndex = personajes.find((element) => element == `${valor}`);
+                personajes.splice(foundIndex, 1);
+                console.log(foundIndex);
             });
         }
+        actualizarLista();
     }
    /* function establecerImagen12() {
         document.querySelectorAll(".click").forEach(el => {
@@ -260,30 +260,13 @@
                 
                 $(`#imagen${id}`).attr('src', `${valor}`);
                 seleccionadoImagen14 = true
-                var foundIndex = personajes.indexOf(`${valor}`);
-                if (foundIndex == -1) {
-                    personajes.splice(foundIndex, 1);
-                    console.log(foundIndex);
-                }
+                var foundIndex = personajes.find((element) => element == `${valor}`);
+                personajes.splice(foundIndex, 1);
+                console.log(foundIndex);
             });
+            actualizarLista();
         }
     }
-
-
-    /*function clickOnContenedor(disparador,id){
-        if(oculto){
-            $(`#${disparador}`).click(function() {
-                $(`#${id}`).show('slow');
-                });
-                oculto = false;
-        }
-        else{
-            $(`#${disparador}`).click(function() {
-                $(`#${id}`).hide(1500);
-                });
-                oculto = true;
-        }
-    }*/
 
     function clickOnContenedor(event, src){
         if(enabled){
