@@ -13,13 +13,29 @@
 <body>
   <div class="div-header">
     <img src="assets/reiniciar.png" width="80px" align="left" onclick="recargar()"/>
-    <img src="assets/SmashBall.png" width="100px" align="right" onclick="location.href='index.HTML'" />
+    <img src="assets/SmashBall.png" width="100px" align="right" onclick="irInicio()" />
   </div>
 
   <script>
     function recargar(){
-        window.location.reload()
-    }
+        var resultado = window.confirm('¿Estás seguro?');
+        if (resultado === true) {
+            window.alert('Bueno, ya no hay vuelta atrás.');
+            window.location.reload()
+        } else { 
+            window.alert('¡Te salvaste de perder tu tabla!');
+        }
+      }
+  
+      function irInicio(){
+        var resultado = window.confirm('¿Estás seguro?');
+        if (resultado === true) {
+            window.alert('Bueno, ya no puedes cancelar:3.');
+            location.href='index.HTML'
+        } else { 
+            window.alert('¡Hasta luego!');
+        }
+      }
 
     var enabled = false;
     var seleccionadoImagen3 = false
@@ -34,6 +50,7 @@
         enabled = false;
     }
 
+    nombresAux = new Array();
     personajes = new Array();
     iconos = new Array();
     nombres = ['Mario', 'DonkeyKong', 'Link', 'Samus',
@@ -55,7 +72,7 @@
       'Canela', 'Incineroar', 'PlantaPiraña', 'Joker', 'Heroe',
       'BanjoyKazooie', 'Terry', 'Byleth', 'MinMin', 'Steve',
       'Sefirot', 'Pyra', 'Mythra', 'Kazuya', 'Sora']
-    nombresAux = nombres
+
 
     let personajeIcono = new Map();
     personajeIcono.set("Mario", "Mario");
@@ -145,30 +162,19 @@
     personajeIcono.set("Sora", "KingdomHearts");
 
 
-    for (var i = 0; i < personajes.length; i++) {
-      personajes[i] = [`assets/Personajes Smash/${nombres[i]}.png`];
+    for (var i = 0; i < nombres.length; i++) {
+        personajes[i] = [`assets/Personajes Smash/${nombres[i]}.png`];
     }
 
 
     document.addEventListener("DOMContentLoaded", function () {
-        for (var i = 0; i < nombres.length; i++) {
-            personajes[i] = [`assets/Personajes Smash/${nombres[i]}.png`];
+        for (var i = 0; i < personajes.length; i++) {
+            /*personajes[i] = [`assets/Personajes Smash/${nombres[i]}.png`];*/
             document.getElementById("3").innerHTML += "<option value='" + personajes[i] + "'> " + nombres[i] + "</option>";
             document.getElementById("12").innerHTML += "<option value='" + personajes[i] + "'> " + nombres[i] + "</option>";
             document.getElementById("14").innerHTML += "<option value='" + personajes[i] + "'> " + nombres[i] + "</option>";
           }
       });
-
-      function actualizarLista(){
-        document.addEventListener("DOMContentLoaded", function () {
-            for (var i = 0; i < nombres.length; i++) {
-                personajes[i] = [`assets/Personajes Smash/${nombres[i]}.png`];
-                document.getElementById("3").innerHTML += "<option value='" + personajes[i] + "'> " + nombres[i] + "</option>";
-                document.getElementById("12").innerHTML += "<option value='" + personajes[i] + "'> " + nombres[i] + "</option>";
-                document.getElementById("14").innerHTML += "<option value='" + personajes[i] + "'> " + nombres[i] + "</option>";
-              }
-          });
-      }
 
     function cambiarImagen() {
         if(seleccionadoImagen3 == seleccionadoImagen12 == seleccionadoImagen14){
@@ -188,29 +194,31 @@
             enable()
         }
         else{
-            swal("Importante!", "Debes seleccionar primero un jugador en las casillas 3, 12 y 14!", "Info");
+            window.confirm('Debes seleccionar primero un jugador en las casillas 3, 12 y 14!');
         }
     }
 
     function establecerImagen3() {
-        // Selecciona el elemento HTML con el ID "12"
         var elemento3 = document.getElementById('3');
-    
-        // Verifica si el elemento se encontró correctamente
         if (elemento3) {
             elemento3.addEventListener("change", function () {
-                // Aquí puedes realizar las operaciones necesarias para establecer la imagen
-                var valor = this.value; // "this" refers to the select element itself
-                var id = this.id; // Get the id of the select element
+                var valor = this.value; 
+                var id = this.id; 
                 
                 $(`#imagen${id}`).attr('src', `${valor}`);
-                seleccionadoImagen3 = true
-                var foundIndex = personajes.find((element) => element == `${valor}`);
-                personajes.splice(foundIndex, 1);
-                console.log(foundIndex);
+                seleccionadoImagen3 = true;
+                for(i=1; i < personajes.length; i++){
+                    if(personajes[i-1] == valor){
+                        nombresAux = personajes.splice(i-1, 1);
+                        console.log(personajes[i-1])
+                    }
+                }
+                /*var foundIndex = personajes.indexOf((valor).toString());
+                if (foundIndex !== -1) {
+                    nombresAux = personajes.splice(foundIndex, 1);
+                }*/
             });
         }
-        actualizarLista();
     }
 
     function establecerImagen12() {
@@ -225,27 +233,21 @@
                 var id = this.id; // Get the id of the select element
                 
                 $(`#imagen${id}`).attr('src', `${valor}`);
-                seleccionadoImagen12 = true
-                var foundIndex = personajes.find((element) => element == `${valor}`);
-                personajes.splice(foundIndex, 1);
-                console.log(foundIndex);
+                seleccionadoImagen12 = true;
+                for(i=1; i < personajes.length; i++){
+                    if(personajes[i-1] == valor){
+                        nombresAux = personajes.splice(i-1, 1);
+                        console.log(personajes[i-1])
+                    }
+                }
+                /*var foundIndex = personajes.indexOf(valor);
+                if (foundIndex !== -1) {
+                   nombresAux = personajes.splice(foundIndex, 1);
+                }
+                console.log(foundIndex)*/
             });
         }
-        actualizarLista();
     }
-   /* function establecerImagen12() {
-        document.querySelectorAll(".click").forEach(el => {
-          el.addEventListener("click", e => {
-            const id = e.target.getAttribute("id");
-            var nom = document.getElementById(`12`);
-
-              $(`#imagen${id}`).attr('src', `assets/Personajes Smash/${nom.value}.png`);
-              var found = personajes.find((element) => element == `assets/Personajes Smash/${nom.value}.png`);
-              nombresAux = personajes.splice(found, 1)
-          })
-        })
-        seleccionadoImagen12 = true
-      }*/
     
       function establecerImagen14() {
         // Selecciona el elemento HTML con el ID "14"
@@ -257,14 +259,16 @@
                 // Aquí puedes realizar las operaciones necesarias para establecer la imagen
                 var valor = this.value; // "this" refers to the select element itself
                 var id = this.id; // Get the id of the select element
-                
+
                 $(`#imagen${id}`).attr('src', `${valor}`);
                 seleccionadoImagen14 = true
-                var foundIndex = personajes.find((element) => element == `${valor}`);
-                personajes.splice(foundIndex, 1);
-                console.log(foundIndex);
+                for(i=1; i < personajes.length; i++){
+                    if(personajes[i-1] == valor){
+                        nombresAux = personajes.splice(i-1, 1);
+                        console.log(personajes[i-1])
+                    }
+                }
             });
-            actualizarLista();
         }
     }
 
@@ -281,7 +285,7 @@
   </script>
 
   <div class="contenedor" id="cont-princ">
-    <table style="width: 100%;" class="fixed-table">
+    <table class="fixed-table" align="center" style="width:auto; height:auto;">
       <tbody>
         <tr>
           <td class="first-col">

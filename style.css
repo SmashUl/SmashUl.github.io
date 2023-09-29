@@ -33,7 +33,6 @@ body{
     justify-content: center;
     width: 100vh;
     align-items: baseline;
-    padding-left: 22%;
     transition: background-color 1s linear;
     -webkit-transition: 1s linear;
     transition: 1s linear;

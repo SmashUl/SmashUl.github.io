@@ -13,13 +13,29 @@
 <body>
   <div class="div-header">
     <img src="assets/reiniciar.png" width="80px" align="left" onclick="recargar()"/>
-    <img src="assets/SmashBall.png" width="100px" align="right" onclick="location.href='index.HTML'"/>
+    <img src="assets/SmashBall.png" width="100px" align="right" onclick="irInicio()"/>
   </div>
 
   <script>
 
     function recargar(){
-        window.location.reload()
+      var resultado = window.confirm('¿Estás seguro?');
+      if (resultado === true) {
+          window.alert('Bueno, si estás seguro.');
+          window.location.reload()
+      } else { 
+          window.alert('Pareces indeciso');
+      }
+    }
+
+    function irInicio(){
+      var resultado = window.confirm('¿Estás seguro?');
+      if (resultado === true) {
+          window.alert('Bueno, si estás seguro.');
+          location.href='index.HTML'
+      } else { 
+          window.alert('Pareces indeciso');
+      }
     }
 
     var enabled = false;
