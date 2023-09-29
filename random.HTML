@@ -168,6 +168,7 @@
         nombresAux = personajes.splice((Math.floor(Math.random() * personajes.length)), 1)
         $(`#imagen${i}`).attr('src', nombresAux[Math.floor(Math.random() * nombresAux.length)]);
       }
+      $('button').attr('disabled', 'disabled');
       enable()
     }
 
