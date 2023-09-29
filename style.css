@@ -76,11 +76,10 @@ body{
     }
     .contenedor{
         display: block;
-        margin-right: 10%;
         margin-left: 10%;
         overflow:scroll;
         align-items: baseline;
-        max-width: 80%;
+        max-width: 100%;
         width: auto;
         overflow-x: auto;
     }
@@ -107,10 +106,9 @@ body{
     }
     .contenedor{
         display: block;
-        margin-right: 3%;
         margin-left: 3%;
         overflow:scroll;
-        max-width: 80%;
+        max-width: 100%;
         width: auto;
         overflow-x: auto;
     }
