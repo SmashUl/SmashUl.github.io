@@ -68,8 +68,10 @@ body{
         margin-right: 10%;
         margin-left: 10%;
         overflow:scroll;
-        width: 100vw;
         align-items: baseline;
+        max-width: 100%;
+        width: auto;
+        overflow-x: auto;
     }
     .contenedor figure {
         flex-basis: calc(50% - 2px); /* Divide en dos columnas en pantallas más pequeñas */
