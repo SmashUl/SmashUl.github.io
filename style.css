@@ -33,7 +33,6 @@ body{
     flex-wrap: wrap;
     justify-content: center;
     width: 100vh;
-    overflow:scroll;
     align-items: center;
     padding: 0;
     transition: background-color 1s linear;
