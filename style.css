@@ -127,10 +127,10 @@ body{
     opacity: 1;
     visibility: visible;
     font-size: medium;
-    transition: all 2s;
-	-moz-transition: all 2s;
-	-webkit-transition: all 2s;
-	-o-transition: all 2s;
+    transition: all 1s;
+	-moz-transition: all 1s;
+	-webkit-transition: all 1s;
+	-o-transition: all 1s;
     -webkit-box-shadow: 10px 10px 14px 2px rgba(0,0,0,0.47);
     box-shadow: 10px 10px 14px 2px rgba(0,0,0,0.47);
 }
