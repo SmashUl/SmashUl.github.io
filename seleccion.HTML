@@ -149,6 +149,7 @@
       personajes[i] = [`assets/Personajes Smash/${nombres[i]}.png`];
     }
 
+
     document.addEventListener("DOMContentLoaded", function () {
         for (var i = 0; i < nombres.length; i++) {
             personajes[i] = [`assets/Personajes Smash/${nombres[i]}.png`];
@@ -158,6 +159,17 @@
           }
       });
 
+      function actualizarLista(){
+        document.addEventListener("DOMContentLoaded", function () {
+            for (var i = 0; i < nombres.length; i++) {
+                personajes[i] = [`assets/Personajes Smash/${nombres[i]}.png`];
+                document.getElementById("3").innerHTML += "<option value='" + personajes[i] + "'> " + nombres[i] + "</option>";
+                document.getElementById("12").innerHTML += "<option value='" + personajes[i] + "'> " + nombres[i] + "</option>";
+                document.getElementById("14").innerHTML += "<option value='" + personajes[i] + "'> " + nombres[i] + "</option>";
+              }
+          });
+      }
+
     function cambiarImagen() {
         if(seleccionadoImagen3 == seleccionadoImagen12 == seleccionadoImagen14){
             for (var i = 1; i < 17; i++) {
@@ -166,6 +178,10 @@
                      $(`#imagen${i}`).attr('src', nombresAux[Math.floor(Math.random() * nombresAux.length)]);
                  }
             }
+            $('.capa').removeClass("capa")
+            $("#container3").children().prop('disabled', true);
+            $("#container12").children().prop('disabled', true);
+            $("#container14").children().prop('disabled', true);
             enable()
         }
         else{
@@ -174,46 +190,82 @@
     }
 
     function establecerImagen3() {
-        var nom = document.getElementById(`3`).value;
-          $(`#imagen3`).attr('src', `assets/Personajes Smash/${nom.value}.png`);
-          var foundIndex = nombres.indexOf(nom);
-            if (foundIndex !== -1) {
-                var removedItem = personajes.splice(foundIndex, 1);
-                console.log(removedItem);
-            }
-        seleccionadoImagen3 = true
+        // Selecciona el elemento HTML con el ID "12"
+        var elemento3 = document.getElementById('3');
+    
+        // Verifica si el elemento se encontró correctamente
+        if (elemento3) {
+            elemento3.addEventListener("change", function () {
+                // Aquí puedes realizar las operaciones necesarias para establecer la imagen
+                var valor = this.value; // "this" refers to the select element itself
+                var id = this.id; // Get the id of the select element
+                
+                $(`#imagen${id}`).attr('src', `${valor}`);
+                seleccionadoImagen3 = true
+                var found = personajes.find((element) => element == `${valor}`);
+                nombresAux = personajes.splice(found, 1)
+            });
+        }
+        actualizarLista()
     }
 
-    document.addEventListener("DOMContentLoaded", function () {
     function establecerImagen12() {
-      
+        // Selecciona el elemento HTML con el ID "12"
+        var elemento12 = document.getElementById('12');
+    
+        // Verifica si el elemento se encontró correctamente
+        if (elemento12) {
+            elemento12.addEventListener("change", function () {
+                // Aquí puedes realizar las operaciones necesarias para establecer la imagen
+                var valor = this.value; // "this" refers to the select element itself
+                var id = this.id; // Get the id of the select element
+                
+                $(`#imagen${id}`).attr('src', `${valor}`);
+                seleccionadoImagen12 = true
+                var foundIndex = personajes.indexOf(`${valor}`);
+                if (foundIndex == -1) {
+                    personajes.splice(foundIndex, 1);
+                    console.log(foundIndex);
+                }
+            });
+        }
+    }
+   /* function establecerImagen12() {
         document.querySelectorAll(".click").forEach(el => {
           el.addEventListener("click", e => {
             const id = e.target.getAttribute("id");
-            var nom = document.getElementById(`image12`);
+            var nom = document.getElementById(`12`);
 
-              $(`#image${id}`).attr('src', `assets/Personajes Smash/${nom.value}.png`);
+              $(`#imagen${id}`).attr('src', `assets/Personajes Smash/${nom.value}.png`);
               var found = personajes.find((element) => element == `assets/Personajes Smash/${nom.value}.png`);
               nombresAux = personajes.splice(found, 1)
           })
         })
         seleccionadoImagen12 = true
-      }
-
+      }*/
+    
       function establecerImagen14() {
-      
-        document.querySelectorAll(".click").forEach(el => {
-          el.addEventListener("click", e => {
-            const id = e.target.getAttribute("id");
-            var nom = document.getElementById(`image14`).value;
-              $(`#image${id}`).attr('src', `assets/Personajes Smash/${nom}.png`);
-              var found = personajes.find((element) => element == `assets/Personajes Smash/${nom}.png`);
-              nombresAux = personajes.splice(found, 1)
-          })
-        })
-        seleccionadoImagen14 = true
-      }
-    });
+        // Selecciona el elemento HTML con el ID "14"
+        var elemento14 = document.getElementById('14');
+    
+        // Verifica si el elemento se encontró correctamente
+        if (elemento14) {
+            elemento14.addEventListener("change", function () {
+                // Aquí puedes realizar las operaciones necesarias para establecer la imagen
+                var valor = this.value; // "this" refers to the select element itself
+                var id = this.id; // Get the id of the select element
+                
+                $(`#imagen${id}`).attr('src', `${valor}`);
+                seleccionadoImagen14 = true
+                var foundIndex = personajes.indexOf(`${valor}`);
+                if (foundIndex == -1) {
+                    personajes.splice(foundIndex, 1);
+                    console.log(foundIndex);
+                }
+            });
+        }
+    }
+
 
     /*function clickOnContenedor(disparador,id){
         if(oculto){
@@ -258,9 +310,9 @@
           </td>
           <td class="flex-td">
             <figure>
-              <img id="imagen3" src="assets/random.png" onclick="establecerImagen3()"/>
-              <div class="capa">
-                <select name="3" id="3">
+              <img id="imagen3" src="assets/random.png"/>
+              <div id="container3" class="capa">
+                <select name="3" id="3"  onclick= establecerImagen3()>
                     <option value=""></option>
                 </select>
               </div>
@@ -313,8 +365,8 @@
           <td class="flex-td">
             <figure>
               <img id="imagen12" src="assets/random.png"/>
-              <div class="capa">
-                <select name="12" id="12">
+              <div id="container12" class="capa">
+                <select name="12" id="12" onclick="establecerImagen12()">
                   <option value=""></option>
                 </select>
               </div>
@@ -330,8 +382,8 @@
           <td class="flex-td">
             <figure>
               <img id="imagen14" src="assets/random.png"/>
-              <div class="capa">
-                <select name= "14" id="14">
+              <div id="container14" class="capa">
+                <select name= "14" id="14"  onclick= establecerImagen14()>
                   <option value=""></option>
                 </select>
               </div>
