@@ -66,6 +66,7 @@ body{
     }
     .contenedor{
         margin-right: 10%;
+        margin-left: 10%;
         overflow:scroll;
         width: 100vw;
         align-items: baseline;
@@ -92,6 +93,7 @@ body{
     }
     .contenedor{
         margin-right: 3%;
+        margin-left: 3%;
         overflow:scroll;
         width: 100vw;
     }
@@ -99,7 +101,7 @@ body{
         flex-basis: 100%; /* Una sola columna en pantallas muy pequeñas */
     }
     .wrapper2{
-        position: relative;
+        position: static;
         top:95%;
         left:50%;
         transform: translate(-50%, -50%);
