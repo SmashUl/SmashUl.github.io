@@ -17,6 +17,16 @@ body{
     align-items:flex-start;
 }
 
+.first-col {
+    padding-left: 74.5px!important;
+    position: flex;
+    margin: 0;
+    align-self: center;
+    width: 80px;
+    height: 80px;
+    border-collapse: collapse;
+  }
+
 /* Estilos generales */
 .contenedor {
     display: flex;
