@@ -93,7 +93,7 @@ body{
     .contenedor{
         margin-right: 10%;
         overflow:scroll;
-        width: 300px;
+        width: 400px;
     }
     .contenedor figure {
         flex-basis: 100%; /* Una sola columna en pantallas muy pequeñas */
